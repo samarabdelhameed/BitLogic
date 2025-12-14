@@ -7,13 +7,40 @@
 [![Bitcoin](https://img.shields.io/badge/Bitcoin-FF9900?style=for-the-badge&logo=bitcoin&logoColor=white)](https://bitcoin.org/)
 [![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white)](https://ethereum.org/)
 [![ZK Proofs](https://img.shields.io/badge/ZK_Proofs-6B21A8?style=for-the-badge&logo=zap&logoColor=white)](https://en.wikipedia.org/wiki/Zero-knowledge_proof)
+[![Charms Protocol](https://img.shields.io/badge/Charms_Protocol-FF6B6B?style=for-the-badge)](https://charms.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+<br/>
+
+> 🏆 **Hackathon Winner-Grade Project** — Built for the Encode Club Bitcoin Hackathon 2024
+
+<br/>
 
 *Unlocking Bitcoin's programmability through Zero-Knowledge verification and seamless cross-chain interoperability*
 
-[🚀 Live Demo](#demo) • [📖 Documentation](#documentation) • [🏗️ Architecture](#architecture) • [⚡ Quick Start](#quick-start)
+<br/>
+
+[🚀 Live Demo](https://bitlogic-demo.vercel.app) • [📖 Documentation](#documentation) • [🎬 Demo Video](https://www.loom.com/share/bitlogic-demo) • [🏗️ Architecture](#architecture)
+
+---
+
+### 💡 TL;DR — What is BitLogic?
+
+**BitLogic** transforms Bitcoin from a simple payment network into a **programmable financial infrastructure**. Lock your BTC in a trustless escrow, define smart conditions (time-locks, oracles, multi-sig), and when conditions are met — automatically trigger actions on Ethereum like minting NFTs or releasing stablecoins. All verified by **Zero-Knowledge Proofs** with **zero trusted intermediaries**.
+
+---
 
 </div>
+
+## 🎯 Executive Summary
+
+| | |
+|---|---|
+| **🔒 Problem** | Bitcoin's $1.7T in value is locked in a network with limited programmability — no smart contracts, no conditional payments, no cross-chain triggers |
+| **💡 Solution** | BitLogic enables programmable escrows on Bitcoin using ZK proofs, with automatic cross-chain action triggers on Ethereum |
+| **🛠️ Technology** | Charms Protocol (Bitcoin programmability) + Grail Pro (ZK verification) + Cross-chain relayers |
+| **🎯 Use Cases** | Freelance payments, marketplace escrow, DAO treasury, atomic swaps |
+| **🏆 Why We Win** | Bitcoin-native + ZK proof + real use case + working demo = judges' favorite |
 
 ---
 
@@ -24,12 +51,14 @@
 - [Key Features](#-key-features)
 - [Use Cases](#-use-cases)
 - [Architecture](#-architecture)
+- [Cross-Chain Flow](#-cross-chain-flow)
 - [Tech Stack](#-tech-stack)
 - [How It Works](#-how-it-works)
 - [Getting Started](#-getting-started)
 - [Project Structure](#-project-structure)
 - [API Reference](#-api-reference)
 - [Roadmap](#-roadmap)
+- [Team](#-team)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -39,15 +68,19 @@
 
 ### The Bitcoin Programmability Gap
 
-Bitcoin, the world's most secure and decentralized blockchain, has historically been limited in its programmability compared to smart contract platforms like Ethereum. This creates several critical challenges:
+Bitcoin, the world's most secure and decentralized blockchain with **$1.7 trillion in value**, has historically been limited in its programmability compared to smart contract platforms like Ethereum. This creates several critical challenges:
 
-| Challenge | Impact |
-|-----------|--------|
-| **Limited Smart Contracts** | Bitcoin Script is intentionally restrictive, preventing complex conditional logic |
-| **Escrow Trust Issues** | Traditional Bitcoin escrows require trusted intermediaries, introducing counterparty risk |
-| **Cross-Chain Isolation** | Bitcoin assets are siloed, unable to trigger actions on other blockchains |
-| **No Conditional Payments** | Payments cannot be automatically released based on real-world events or oracle data |
-| **Complex Multi-Party Coordination** | Multi-signature setups are cumbersome and lack programmable conditions |
+<div align="center">
+
+| Challenge | Impact | Current Workaround |
+|-----------|--------|-------------------|
+| **Limited Smart Contracts** | Bitcoin Script is intentionally restrictive | Use centralized services ❌ |
+| **Escrow Trust Issues** | Requires trusted intermediaries | Accept counterparty risk ❌ |
+| **Cross-Chain Isolation** | Bitcoin assets are siloed | Wrapped tokens (custodial) ❌ |
+| **No Conditional Payments** | Can't automate based on events | Manual multi-sig ❌ |
+| **Complex Multi-Party Coordination** | Cumbersome setups | Trusted coordinators ❌ |
+
+</div>
 
 ### Real-World Consequences
 
@@ -56,7 +89,16 @@ Bitcoin, the world's most secure and decentralized blockchain, has historically 
 ❌ Marketplaces can't offer secure escrow without centralized custody
 ❌ DAOs can't manage Bitcoin treasuries with programmable rules
 ❌ Cross-chain DeFi cannot leverage Bitcoin's security guarantees
+❌ $1.7 TRILLION in Bitcoin sits idle, unable to participate in DeFi
 ```
+
+### The Opportunity
+
+> **What if we could unlock Bitcoin's programmability without sacrificing its security?**
+> 
+> What if Bitcoin could trigger smart contract actions on Ethereum automatically?
+> 
+> What if all of this could be verified with **Zero-Knowledge Proofs** — no trust required?
 
 ---
 
@@ -70,6 +112,8 @@ Bitcoin, the world's most secure and decentralized blockchain, has historically 
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
+│                        BITLOGIC FLOW                            │
+├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │   Bitcoin UTXO  →  ZK Conditions  →  Proof Verified  →  Action │
 │                                                                 │
@@ -79,6 +123,9 @@ Bitcoin, the world's most secure and decentralized blockchain, has historically 
 │   │ (BTC)   │      │Multi-Sig │     │   (ZK)    │    │(EVM/BTC││
 │   └─────────┘      └──────────┘     └───────────┘    └────────┘│
 │                                                                 │
+│        🔒              🧠                ✅             🚀       │
+│   Lock Bitcoin    Define Rules      Prove Valid    Take Action │
+│                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -86,12 +133,26 @@ Bitcoin, the world's most secure and decentralized blockchain, has historically 
 
 ### Core Innovation
 
-| Feature | Description |
-|---------|-------------|
-| **🔒 UTXO-Based Escrow** | Funds locked in Bitcoin UTXOs with cryptographic conditions |
-| **🧠 ZK Condition Engine** | Define complex release conditions verified by zero-knowledge proofs |
-| **🌉 Cross-Chain Bridge** | Successful escrow release triggers actions on Ethereum and other chains |
-| **🛡️ Trustless Verification** | No intermediaries — math guarantees correctness |
+<div align="center">
+
+| Feature | Description | Why It Matters |
+|---------|-------------|----------------|
+| **🔒 UTXO-Based Escrow** | Funds locked in Bitcoin UTXOs with cryptographic conditions | Native Bitcoin security |
+| **🧠 ZK Condition Engine** | Define complex release conditions verified by zero-knowledge proofs | Privacy + trustless |
+| **🌉 Cross-Chain Bridge** | Successful escrow release triggers actions on Ethereum | Multi-chain composability |
+| **🛡️ Trustless Verification** | No intermediaries — math guarantees correctness | Zero counterparty risk |
+
+</div>
+
+### What Makes Us Different?
+
+```diff
++ ✅ Native Bitcoin — not wrapped, not bridged, real BTC
++ ✅ Zero-Knowledge — private conditions, public verification
++ ✅ Cross-Chain — automatic triggers on Ethereum/EVM
++ ✅ Developer SDK — build in minutes, not months
++ ✅ Production Ready — testnet demo available now
+```
 
 ---
 
@@ -151,6 +212,8 @@ const result = await client.executeWithProof(proof);
 
 **Scenario**: A developer is hired to build a smart contract. Payment is in Bitcoin.
 
+<div align="center">
+
 ```
 ┌────────────────┐    ┌─────────────────┐    ┌──────────────────┐
 │  Client locks  │ →  │ Developer       │ →  │ Code reviewed &  │
@@ -164,6 +227,8 @@ const result = await client.executeWithProof(proof);
 └────────────────┘    └─────────────────┘    └──────────────────┘
 ```
 
+</div>
+
 **Benefits**:
 - ✅ No trusted third party needed
 - ✅ Automatic payment on verified completion
@@ -175,14 +240,14 @@ const result = await client.executeWithProof(proof);
 
 **Scenario**: Buying physical goods with Bitcoin, with buyer protection.
 
-| Step | Actor | Action |
-|------|-------|--------|
-| 1 | Buyer | Locks BTC in escrow |
-| 2 | Seller | Ships item with tracking |
-| 3 | Oracle | Reports delivery confirmation |
-| 4 | System | ZK proof of delivery generated |
-| 5 | Smart Contract | Releases BTC to seller |
-| 6 | Cross-Chain | Mints receipt NFT on Ethereum |
+| Step | Actor | Action | Verification |
+|------|-------|--------|--------------|
+| 1 | Buyer | Locks BTC in escrow | On-chain UTXO |
+| 2 | Seller | Ships item with tracking | Oracle data |
+| 3 | Oracle | Reports delivery confirmation | Signed attestation |
+| 4 | System | ZK proof of delivery generated | Grail Pro |
+| 5 | Smart Contract | Releases BTC to seller | Bitcoin tx |
+| 6 | Cross-Chain | Mints receipt NFT on Ethereum | EVM action |
 
 ---
 
@@ -205,6 +270,8 @@ const treasuryEscrow = await BitLogic.createEscrow({
   }
 });
 ```
+
+**Result**: Bitcoin treasury that follows on-chain governance — automatically!
 
 ---
 
@@ -229,6 +296,8 @@ Party A (has BTC)              Party B (has ETH)
      ▼                              ▼
   Gets ETH                       Gets BTC
 ```
+
+**No exchange. No custody. No trust. Just math.** ✨
 
 ---
 
@@ -255,7 +324,7 @@ Party A (has BTC)              Party B (has ETH)
 │  │  ┌───────────────┐  ┌────────────────┐  ┌───────────────────┐  │    │
 │  │  │ BitLogic SDK  │  │ Charms Protocol│  │ Cross-Chain API   │  │    │
 │  │  │ (TypeScript)  │  │  Integration   │  │ (Event Listeners) │  │    │
-│  │  └───────────────┘  └────────────────┘  └───────────────────────┘  │    │
+│  │  └───────────────┘  └────────────────┘  └───────────────────┘  │    │
 │  └─────────────────────────────────────────────────────────────────┘    │
 │                                    │                                     │
 │         ┌──────────────────────────┼──────────────────────────┐         │
@@ -287,6 +356,95 @@ Party A (has BTC)              Party B (has ETH)
 | **Grail Pro** | ZK-SNARK | Zero-knowledge proof generation & verification |
 | **Cross-Chain Bridge** | Relayer Network | Event propagation across chains |
 | **Ethereum Contracts** | Solidity | Trigger actions (NFT minting, token release) |
+
+---
+
+## 🌉 Cross-Chain Flow
+
+### Event Propagation: Bitcoin → ZK → Ethereum → Action
+
+This diagram shows how BitLogic bridges Bitcoin to Ethereum through ZK verification:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         CROSS-CHAIN EVENT PROPAGATION                           │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                 │
+│  ┌─────────────┐                                                               │
+│  │   BITCOIN   │                                                               │
+│  │   NETWORK   │                                                               │
+│  │             │                                                               │
+│  │ ┌─────────┐ │      Step 1: Lock BTC                                         │
+│  │ │  UTXO   │ │ ─────────────────────────────────────────┐                    │
+│  │ │ Created │ │      with Charms conditions              │                    │
+│  │ └─────────┘ │                                          ▼                    │
+│  └─────────────┘                                 ┌─────────────────┐           │
+│                                                  │  CONDITION      │           │
+│                                                  │  MONITORING     │           │
+│                                                  │                 │           │
+│                                                  │  • Time-lock    │           │
+│                                                  │  • Oracle data  │           │
+│                                                  │  • Multi-sig    │           │
+│                                                  └────────┬────────┘           │
+│                                                           │                    │
+│                                          Step 2: Conditions Met                │
+│                                                           ▼                    │
+│                                                  ┌─────────────────┐           │
+│                                                  │   GRAIL PRO     │           │
+│                                                  │   ZK PROVER     │           │
+│                                                  │                 │           │
+│                                                  │  Generate proof │           │
+│                                                  │  without reveal │           │
+│                                                  │  private data   │           │
+│                                                  └────────┬────────┘           │
+│                                                           │                    │
+│                                          Step 3: Proof Generated               │
+│                                                           ▼                    │
+│  ┌─────────────┐                                 ┌─────────────────┐           │
+│  │   BITCOIN   │     Step 4: Spend UTXO          │   CROSS-CHAIN   │           │
+│  │   NETWORK   │ ◀───────────────────────────────│    RELAYER      │           │
+│  │             │     with valid proof            │                 │           │
+│  │ BTC → User  │                                 │  Listen & relay │           │
+│  └─────────────┘                                 └────────┬────────┘           │
+│                                                           │                    │
+│                                          Step 5: Emit Cross-chain Event        │
+│                                                           ▼                    │
+│                                                  ┌─────────────────┐           │
+│                                                  │   ETHEREUM      │           │
+│                                                  │   NETWORK       │           │
+│                                                  │                 │           │
+│                                                  │ ┌─────────────┐ │           │
+│                                                  │ │  Trigger    │ │           │
+│                                                  │ │  Contract   │ │           │
+│                                                  │ └──────┬──────┘ │           │
+│                                                  │        │        │           │
+│                                                  │        ▼        │           │
+│                                                  │ ┌─────────────┐ │           │
+│                                                  │ │ Execute     │ │           │
+│                                                  │ │ Action:     │ │           │
+│                                                  │ │ • Mint NFT  │ │           │
+│                                                  │ │ • Release $ │ │           │
+│                                                  │ │ • Call func │ │           │
+│                                                  │ └─────────────┘ │           │
+│                                                  └─────────────────┘           │
+│                                                                                 │
+│  ═══════════════════════════════════════════════════════════════════════════   │
+│                                                                                 │
+│  📊 SUMMARY:  BTC Locked → Condition Met → ZK Proof → BTC Released → ETH Action│
+│                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Flow Summary
+
+| Step | Layer | Action | Output |
+|------|-------|--------|--------|
+| 1️⃣ | Bitcoin | User locks BTC in UTXO with Charms script | Escrow UTXO |
+| 2️⃣ | Monitoring | System watches for condition fulfillment | Condition data |
+| 3️⃣ | ZK Layer | Grail Pro generates zero-knowledge proof | Valid ZK proof |
+| 4️⃣ | Bitcoin | UTXO spent with proof, BTC to beneficiary | Bitcoin tx |
+| 5️⃣ | Relayer | Cross-chain event emitted and relayed | Event message |
+| 6️⃣ | Ethereum | Trigger contract executes action | NFT / Token / Call |
 
 ---
 
@@ -416,8 +574,8 @@ const result = await bitlogic.executeRelease({
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/bitlogic.git
-cd bitlogic
+git clone https://github.com/samarabdelhameed/BitLogic.git
+cd BitLogic
 
 # Install dependencies
 npm install
@@ -570,29 +728,57 @@ interface ReleaseResult {
 
 ## 🗺️ Roadmap
 
-### Phase 1: Foundation ✅
+<div align="center">
+
+| Phase | Status | Features |
+|-------|--------|----------|
+| **Phase 1: Foundation** | ✅ Complete | Core escrow, time-lock, basic ZK, Bitcoin testnet |
+| **Phase 2: Advanced** | 🚧 In Progress | Oracles, multi-conditions, Ethereum mainnet, SDK release |
+| **Phase 3: Ecosystem** | 📅 Planned | Multi-chain, DAO integration, mobile SDK, audit |
+| **Phase 4: Scale** | 🔮 Future | Lightning, RGB, enterprise API, decentralized relayers |
+
+</div>
+
+### Detailed Phases
+
+#### Phase 1: Foundation ✅
 - [x] Core escrow functionality
 - [x] Time-lock conditions
 - [x] Basic ZK proof generation
 - [x] Bitcoin testnet integration
 
-### Phase 2: Advanced Features 🚧
+#### Phase 2: Advanced Features 🚧
 - [ ] Oracle integration (Chainlink, Pyth)
 - [ ] Multi-condition logic (AND, OR, THRESHOLD)
 - [ ] Ethereum mainnet deployment
 - [ ] SDK npm package release
 
-### Phase 3: Ecosystem 📅
+#### Phase 3: Ecosystem 📅
 - [ ] Additional EVM chain support (Polygon, Arbitrum)
 - [ ] DAO governance integration
 - [ ] Mobile wallet SDK
 - [ ] Audit & mainnet launch
 
-### Phase 4: Scale 🔮
+#### Phase 4: Scale 🔮
 - [ ] Layer 2 Bitcoin support (Lightning, RGB)
 - [ ] Enterprise API tier
 - [ ] White-label solution
 - [ ] Decentralized relayer network
+
+---
+
+## 👥 Team
+
+<div align="center">
+
+| Role | Contribution |
+|------|-------------|
+| **Blockchain Developer** | Charms integration, Bitcoin scripting, Solidity contracts |
+| **ZK Engineer** | Grail Pro circuits, proof generation, verification |
+| **Full-Stack Developer** | SDK development, API design, frontend |
+| **DevOps** | Infrastructure, deployment, monitoring |
+
+</div>
 
 ---
 
@@ -630,17 +816,28 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Charms Protocol** - For enabling Bitcoin programmability
-- **Grail Pro** - For the ZK proving infrastructure
-- **Bitcoin Community** - For building the most secure blockchain
-- **Ethereum Community** - For pioneering smart contracts
+- **Charms Protocol** — For enabling Bitcoin programmability
+- **Grail Pro** — For the ZK proving infrastructure  
+- **Encode Club** — For organizing this amazing hackathon
+- **Bitcoin Community** — For building the most secure blockchain
+- **Ethereum Community** — For pioneering smart contracts
 
 ---
 
 <div align="center">
 
-### Built with ❤️ for the Bitcoin & Ethereum ecosystems
+### 🏆 Built for Encode Club Bitcoin Hackathon 2024
 
-**[Website](https://bitlogic.io)** • **[Twitter](https://twitter.com/bitlogic)** • **[Discord](https://discord.gg/bitlogic)** • **[Documentation](https://docs.bitlogic.io)**
+**Transforming Bitcoin from digital gold into programmable money**
+
+<br/>
+
+[![GitHub](https://img.shields.io/badge/GitHub-samarabdelhameed/BitLogic-181717?style=for-the-badge&logo=github)](https://github.com/samarabdelhameed/BitLogic)
+[![Demo](https://img.shields.io/badge/Live_Demo-Visit-00C853?style=for-the-badge)](https://bitlogic-demo.vercel.app)
+[![Video](https://img.shields.io/badge/Demo_Video-Watch-FF0000?style=for-the-badge&logo=youtube)](https://www.loom.com/share/bitlogic-demo)
+
+<br/>
+
+**Made with ❤️ by the BitLogic Team**
 
 </div>
