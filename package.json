@@ -1,0 +1,47 @@
+{
+    "name": "bitlogic",
+    "version": "1.0.0",
+    "private": true,
+    "description": "BitLogic - Programmable Bitcoin Escrow with ZK Proofs & Cross-Chain Triggers",
+    "scripts": {
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "test": "turbo run test",
+        "lint": "turbo run lint",
+        "clean": "turbo run clean",
+        "demo:escrow": "ts-node scripts/demo-escrow.ts"
+    },
+    "keywords": [
+        "bitcoin",
+        "escrow",
+        "zk-proofs",
+        "cross-chain",
+        "ethereum",
+        "charms",
+        "grail-pro",
+        "hackathon"
+    ],
+    "author": "Samar Abdelhameed",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/samarabdelhameed/BitLogic.git"
+    },
+    "workspaces": [
+        "apps/*",
+        "packages/*",
+        "services/*"
+    ],
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "turbo": "^1.10.0",
+        "typescript": "^5.0.0",
+        "ts-node": "^10.9.0",
+        "eslint": "^8.0.0",
+        "prettier": "^3.0.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "packageManager": "npm@10.0.0"
+}

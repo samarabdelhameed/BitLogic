@@ -1,0 +1,55 @@
+{
+  "name": "@bitlogic/sdk",
+  "version": "1.0.0",
+  "description": "BitLogic SDK - Programmable Bitcoin Escrow with ZK Proofs & Cross-Chain Triggers",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "lint": "eslint src/",
+    "test": "jest",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "bitcoin",
+    "escrow",
+    "zk-proofs",
+    "cross-chain",
+    "ethereum",
+    "charms",
+    "grail-pro"
+  ],
+  "author": "Samar Abdelhameed",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samarabdelhameed/BitLogic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samarabdelhameed/BitLogic/issues"
+  },
+  "homepage": "https://github.com/samarabdelhameed/BitLogic#readme",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "eslint": "^8.0.0"
+  },
+  "peerDependencies": {
+    "ethers": "^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "ethers": {
+      "optional": true
+    }
+  }
+}
